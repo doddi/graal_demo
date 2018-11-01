@@ -11,11 +11,7 @@ public class PolyglotFileRunJava
   public static void main(String[] args) throws IOException {
     Context context = Context.newBuilder().allowAllAccess(true).allowIO(true).build();
 
-    URL systemResource = ClassLoader.getSystemResource("pythonAccessJava.py");
-    File file = new File(systemResource.getFile());
-    Source source = Source.newBuilder("python", file).build();
-
-    context.eval(source);
+    evaluateFile(context, "pythonAccessJava.py");
 
     Value clazz = context.eval("python", "Plugin");
     PythonPlugin plugin = clazz.newInstance().as(PythonPlugin.class);
@@ -23,5 +19,18 @@ public class PolyglotFileRunJava
     plugin.initialise();
     plugin.run();
     plugin.shutdown();
+    plugin.speak("Mark");
+    System.out.println(plugin.getRandom());
+
+    PolyglotShape polyglotShape = new PolyglotShape(3, 2);
+    System.out.println(polyglotShape.javaArea());
+    plugin.printArea(polyglotShape);
+  }
+
+  private static void evaluateFile(final Context context, final String filename) throws IOException {
+    URL systemResource = ClassLoader.getSystemResource(filename);
+    File file = new File(systemResource.getFile());
+    Source source = Source.newBuilder("python", file).build();
+    context.eval(source);
   }
 }
