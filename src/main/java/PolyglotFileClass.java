@@ -6,6 +6,9 @@ import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
 
+/**
+ * Demonstrates how to evaluate and instantiate a Python class within Java
+ */
 public class PolyglotFileClass
 {
   public static void main(String[] args) throws IOException {

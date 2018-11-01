@@ -22,8 +22,8 @@ class Plugin:
     return 1
 
   def getShape(self):
-    # shape = PolyglotShape(2, 4, "foo")
-    return 1 #shape
+    shape = PolyglotShape(2, 4)
+    return shape
 
   def printArea(self, shape):
       print(shape.javaArea())

@@ -6,6 +6,9 @@ import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
 
+/**
+ * Demonstrated how to evaluate a Python file and call a global method
+ */
 public class PolyglotFileMethod
 {
   public static void main(String[] args) throws IOException {

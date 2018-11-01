@@ -1,6 +1,9 @@
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Value;
 
+/**
+ * Demos how to run python code inline
+ */
 public class PolyglotInline
 {
   public static void main(String[] args) {
